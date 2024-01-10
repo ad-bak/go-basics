@@ -4,4 +4,5 @@ use (
    ./basic
    ./control
    ./pointers
+   ./structs
 )
