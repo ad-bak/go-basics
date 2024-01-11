@@ -6,4 +6,5 @@ use (
    ./pointers
    ./structs
    ./type
+   ./notes
 )
