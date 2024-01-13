@@ -22,9 +22,9 @@ type saver interface {
 	Save() error
 }
 
-type displayer interface {
-	Display()
-}
+// type displayer interface {
+// 	Display()
+// }
 
 type outputtable interface {
 	saver
@@ -32,6 +32,10 @@ type outputtable interface {
 }
 
 func main() {
+	printSomething(1)
+	printSomething(1.5)
+	printSomething("Hello world!")
+
 	title, content := getNoteData()
 
 	todoText := getUserInput("Todo text:")
@@ -58,6 +62,37 @@ func main() {
 
 	err = outputData(userNote)
 
+}
+
+// interface{} is basically "any" in Go.
+func printSomething(value interface{}) {
+	intVal, ok := value.(int)
+
+	if ok {
+		fmt.Println("Integer:", intVal)
+		return
+	}
+
+	floatVal, ok := value.(float64)
+
+	if ok {
+		fmt.Println("Integer:", floatVal)
+	}
+
+	strVal, ok := value.(string)
+
+	if ok {
+		fmt.Println("String:", strVal)
+	}
+
+	// switch value.(type) {
+	// case int:
+	// 	fmt.Println("Integer:", value)
+	// case float64:
+	// 	fmt.Println("Float:", value)
+	// case string:
+	// 	fmt.Println("String:", value)
+	// }
 }
 
 func saveData(data saver) error {
