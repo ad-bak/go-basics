@@ -50,4 +50,12 @@ func main() {
 
 	fmt.Println(products)
 
+	products = append(products, Product{
+		title: "Keyboard",
+		id:    "3",
+		price: 150.0,
+	})
+
+	fmt.Println(products)
+
 }
