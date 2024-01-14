@@ -9,4 +9,5 @@ use (
    ./notes
    ./generics
    ./#8_arrays
+   ./9.practice
 )
