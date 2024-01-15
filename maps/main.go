@@ -3,18 +3,17 @@ package main
 import "fmt"
 
 func main() {
-	websites := map[string]string{
-		"google":   "https://google.com",
-		"facebook": "https://facebook.com",
-	}
-	fmt.Println(websites)
-	fmt.Println(websites["google"])
-	websites["Linkedin"] = "https://linkedin.com"
+	userNames := make([]string, 2, 5)
 
-	fmt.Println(websites)
+	userNames = append(userNames, "johndoe")
+	userNames = append(userNames, "maxpayne")
 
-	delete(websites, "google")
+	fmt.Println(userNames)
 
-	fmt.Println(websites)
+	courseRatings := map[string]float64{}
 
+	courseRatings["go"] = 5.0
+	courseRatings["react"] = 4.8
+
+	fmt.Println(courseRatings)
 }
