@@ -11,4 +11,5 @@ use (
    ./arrays
    ./practice
    ./maps
+   ./functions
 )
