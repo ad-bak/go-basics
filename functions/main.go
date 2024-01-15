@@ -3,44 +3,25 @@ package main
 import "fmt"
 
 func main() {
-	numbers := []int{1, 2, 3}
+	numbers := []int{1, 10, 15}
 
-	// here we use a closure
-	// we create a function that will multiply a number by 2
-	double := createTransformer(2)
-	triple := createTransformer(3)
+	//2. this is how we pass a slice to a variadic function
+	// we use the ... operator after the slice name
+	// or we could simply pass the numbers slice like this:
+	// sum := sumup(numbers)
+	sum := sumup(10, numbers...)
 
-	transformed := transformNumbers(&numbers, func(number int) int {
-		return number * 2
-	})
-
-	// then we pass the function to the transformNumbers function
-	// since we already have a function that will multiply a number by 2
-	// we can just pass it to the transformNumbers function
-	doubled := transformNumbers(&numbers, double)
-	tripled := transformNumbers(&numbers, triple)
-
-	fmt.Println("double", doubled)
-	fmt.Println("triple", tripled)
-
-	fmt.Println(transformed)
+	fmt.Println(sum)
 }
 
-func transformNumbers(numbers *[]int, transform func(int) int) []int {
-	dNumbers := []int{}
+// 1. this type of syntax is called variadic function
+// it means that we can pass any number of arguments to this function
+func sumup(startingValue int, numbers ...int) int {
+	sum := 0
 
-	for _, val := range *numbers {
-		dNumbers = append(dNumbers, transform(val))
+	for _, val := range numbers {
+		sum += val
 	}
 
-	return dNumbers
-}
-
-// this is a closure
-// it's a function that returns another function
-// in this example this function will return a function that will multiply a number by the factor
-func createTransformer(factor int) func(int) int {
-	return func(number int) int {
-		return number * factor
-	}
+	return sum
 }
