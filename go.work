@@ -12,4 +12,5 @@ use (
    ./practice
    ./maps
    ./functions
+   ./concurrency
 )
